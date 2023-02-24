@@ -20,7 +20,6 @@ function invokeAction({ action, id, name, email, phone }) {
         .listContacts()
         .then((contacts) => console.table(contacts))
         .catch((error) => console.log(error));
-
       break;
 
     case "get":
