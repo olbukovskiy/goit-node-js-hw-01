@@ -13,23 +13,31 @@ program.parse(process.argv);
 
 const argv = program.opts();
 
-// TODO: рефакторить
 function invokeAction({ action, id, name, email, phone }) {
   switch (action) {
     case "list":
-      // ...
+      contactsFunctions
+        .listContacts()
+        .then((contacts) => console.table(contacts))
+        .catch((error) => console.log(error));
+
       break;
 
     case "get":
-      // ... id
+      contactsFunctions
+        .getContactById(id)
+        .then((contact) => console.log(contact))
+        .catch((error) => console.log(error));
       break;
 
     case "add":
-      // ... name email phone
+      contactsFunctions
+        .addContact(name, email, phone)
+        .catch((error) => console.log(error));
       break;
 
     case "remove":
-      // ... id
+      contactsFunctions.removeContact(id).catch((error) => console.log(error));
       break;
 
     default:

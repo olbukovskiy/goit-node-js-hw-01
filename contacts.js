@@ -11,7 +11,6 @@ async function listContacts() {
     const contacts = JSON.parse(contactsBuffer.toString());
     return contacts;
   } catch (error) {
-    console.log(error.message);
     return error.message;
   }
 }
@@ -31,7 +30,6 @@ async function getContactById(contactId) {
 
     return searchContact;
   } catch (error) {
-    console.log(error.message);
     return error.message;
   }
 }
@@ -56,7 +54,6 @@ async function removeContact(contactId) {
       `Contact with the id ${contactId} was successfully deleted!`.green
     );
   } catch (error) {
-    console.log(error.message);
     return error.message;
   }
 }
@@ -69,8 +66,6 @@ async function addContact(name, email, phone) {
     const index = contacts.findIndex(
       (contact) => contact.name === name.toString()
     );
-
-    console.log(index);
 
     if (index !== -1 || index === 0) {
       throw new Error(
@@ -88,7 +83,6 @@ async function addContact(name, email, phone) {
       `${name} was successfully added to your's contacts list!`.green
     );
   } catch (error) {
-    console.log(error.message);
     return error.message;
   }
 }
